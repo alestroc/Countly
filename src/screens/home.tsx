@@ -1,4 +1,4 @@
-import {Button, StyleSheet, Text, View} from 'react-native';
+import {Button, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 
 const renderCard = (title: string, value: string) => {
@@ -8,8 +8,12 @@ const renderCard = (title: string, value: string) => {
       <View style={styles.cardContent}>
         <Text style={styles.cardValue}>{value}</Text>
         <View style={styles.row}>
-          <Button title="+" onPress={() => {}} />
-          <Button title="-" onPress={() => {}} />
+          <TouchableOpacity style={styles.button} onPress={() => {}}>
+            <Text style={styles.white}>+</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={() => {}}>
+            <Text style={styles.white}>-</Text>
+          </TouchableOpacity>
         </View>
       </View>
       <View style={styles.icon}>
@@ -67,5 +71,18 @@ const styles = StyleSheet.create({
   cardValue: {
     fontSize: 20,
     color: 'black',
+  },
+  button: {
+    marginLeft: 5,
+    backgroundColor: 'black',
+    height: 32,
+    width: 32,
+    alignItems: 'center',
+    borderRadius: 16,
+    justifyContent: 'center',
+  },
+  white: {
+    color: 'white',
+    fontSize: 20,
   },
 });
