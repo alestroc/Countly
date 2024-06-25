@@ -4,11 +4,7 @@ import {SafeAreaView} from 'react-native';
 import HomeScreen from './src/screens/home';
 
 function App(): React.JSX.Element {
-  return (
-    <SafeAreaView>
-      <HomeScreen />
-    </SafeAreaView>
-  );
+  return <HomeScreen />;
 }
 
 export default App;

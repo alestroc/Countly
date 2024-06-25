@@ -1,46 +1,29 @@
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
-import React, {useState} from 'react';
+import {Button, StyleSheet, Text, View} from 'react-native';
+import React from 'react';
 
+const renderCard = (title: string, value: string) => {
+  return (
+    <View style={styles.card}>
+      <Text style={styles.cardTitle}>{title}</Text>
+      <View style={styles.cardContent}>
+        <Text style={styles.cardValue}>{value}</Text>
+        <View style={styles.row}>
+          <Button title="+" onPress={() => {}} />
+          <Button title="-" onPress={() => {}} />
+        </View>
+      </View>
+      <View style={styles.icon}>
+        <Text>Visualizza Dettagli</Text>
+      </View>
+    </View>
+  );
+};
 const HomeScreen = () => {
-  const [number, setNumber] = useState(0); // Add this line
-
-  const increment = () => {
-    setNumber(number + 1); // Add this line
-  };
-  const decrement = () => {
-    setNumber(number - 1); // Add this line
-  };
-
   return (
     <View style={styles.container}>
-      <View style={styles.counter}>
-        <View>
-          <Text style={styles.num}> {number}</Text>
-        </View>
-        <View style={styles.bar}>
-          <TouchableOpacity onPress={increment}>
-            <Text style={styles.button}>+</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={decrement}>
-            <Text style={styles.button}>-</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-      <Text>Contatore 1</Text>
-      <View style={styles.counter}>
-        <View>
-          <Text style={styles.num}> {number}</Text>
-        </View>
-        <View style={styles.bar}>
-          <TouchableOpacity onPress={increment}>
-            <Text style={styles.button}>+</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={decrement}>
-            <Text style={styles.button}>-</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-      <Text>Contatore 2</Text>
+      <Text style={styles.title}>Countly</Text>
+      {renderCard('Counter 1', '100')}
+      {renderCard('Inactive User', '10')}
     </View>
   );
 };
@@ -49,44 +32,40 @@ export default HomeScreen;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'lightblue',
-    justifyContent: 'center',
-    alignItems: 'center',
+    flex: 1,
+    backgroundColor: 'lightgray',
+    padding: 16,
   },
-  counter: {
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: 'black',
+  },
+  card: {
+    backgroundColor: 'white',
+    padding: 16,
+    marginVertical: 8,
+    borderRadius: 16,
+  },
+  cardTitle: {
+    fontSize: 18,
+    color: 'black',
+  },
+  cardContent: {
     flexDirection: 'row',
-    height: 100,
-    width: '90%',
-    backgroundColor: 'lightgreen',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  bar: {
-    justifyContent: 'space-around',
-    width: '20%',
-    height: '100%',
+  row: {
     flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: 'red',
   },
-  button: {
-    flexDirection: 'column',
-    textAlign: 'center',
-    textAlignVertical: 'center',
-    borderWidth: 2,
-    height: 35,
-    width: 35,
-    borderRadius: 15,
-    margin: 3,
-    justifyContent: 'flex-end',
-  },
-  num: {
-    height: 50,
-    width: 50,
-    backgroundColor: 'lightgray',
+  icon: {
+    flexDirection: 'row',
     justifyContent: 'center',
-    textAlign: 'center',
-    textAlignVertical: 'center',
+  },
+  cardValue: {
     fontSize: 20,
+    color: 'black',
   },
 });
