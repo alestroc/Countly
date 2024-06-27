@@ -12,30 +12,31 @@ const EditScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Input placeholder="My Counter" style={styles.input} />
-      <Text style={styles.centered}> 10</Text>
+
+      <Text style={styles.fontup}> 10</Text>
       <View style={styles.row}>
-        <TouchableOpacity style={styles.edit} onPress={() => {}}>
-          <Text style={styles.centered}>Customize</Text>
+        <TouchableOpacity style={styles.edit1} onPress={() => {}}>
+          <Text style={styles.centeredTxt}>Customize</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.edit} onPress={() => {}}>
-          <Text style={styles.centered}>Change</Text>
+        <TouchableOpacity style={styles.edit1} onPress={() => {}}>
+          <Text style={styles.centeredTxt}>Change</Text>
         </TouchableOpacity>
       </View>
-      <View style={styles.group}>
+      <View>
         <View style={styles.row}>
-          <TouchableOpacity style={styles.edit} onPress={() => {}}>
-            <Text style={styles.centered}>Increment</Text>
+          <TouchableOpacity style={styles.edit2} onPress={() => {}}>
+            <Text style={styles.centeredTxt}>Increment</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.edit} onPress={() => {}}>
-            <Text style={styles.centered}>Decrement</Text>
+          <TouchableOpacity style={styles.edit2} onPress={() => {}}>
+            <Text style={styles.centeredTxt}>Decrement</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.row}>
-          <TouchableOpacity style={styles.edit} onPress={() => {}}>
-            <Text style={styles.centered}>RESET</Text>
+          <TouchableOpacity style={styles.edit2} onPress={() => {}}>
+            <Text style={styles.centeredTxt}>Reset</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.edit} onPress={() => {}}>
-            <Text style={styles.centered}>CHANGE</Text>
+          <TouchableOpacity style={styles.edit2} onPress={() => {}}>
+            <Text style={styles.centeredTxt}>Change</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -46,6 +47,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
+    alignItems: 'center',
   },
   input: {
     paddingLeft: 21,
@@ -56,23 +58,32 @@ const styles = StyleSheet.create({
     margin: 12,
   },
   row: {
-    marginTop: 10,
     flexDirection: 'row',
-    height: 100,
+    height: 80,
   },
-  group: {},
-  centered: {
-    justifyContent: 'center',
+  centeredTxt: {
+    height: '100%',
+    textAlignVertical: 'center',
     textAlign: 'center',
-    fontSize: 35,
     fontWeight: 'bold',
+    fontSize: 20,
   },
-  edit: {
-    borderRadius: 8,
+  fontup: {
+    fontSize: 55,
+    color: 'black',
+  },
+  edit2: {
+    margin: 3,
+    borderRadius: 32,
     borderColor: 'black',
     borderWidth: 2,
-    width: '50%',
-    height: '50%',
+    width: 190,
+    height: 60,
+  },
+  edit1: {
+    marginTop: 11,
+    width: 190,
+    height: 60,
   },
 });
 export default EditScreen;
