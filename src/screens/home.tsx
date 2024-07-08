@@ -1,5 +1,7 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
+import MyReusableComponent from '../components/generalButton.tsx';
+import {useNavigation} from '@react-navigation/native';
 
 const renderCard = (title: string, value: string) => {
   return (
@@ -17,12 +19,18 @@ const renderCard = (title: string, value: string) => {
         </View>
       </View>
       <View style={styles.icon}>
-        <Text>Visualizza Dettagli</Text>
+        <MyReusableComponent
+          textType="primary"
+          type="primary"
+          title="Show Dettails"
+          onPress={() => console.log('Clicked!')}
+        />
       </View>
     </View>
   );
 };
-const HomeScreen = () => {
+
+const HomeScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Countly</Text>

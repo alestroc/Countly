@@ -7,37 +7,50 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {Input} from '@rneui/themed';
+import MyReusableComponent from '../components/generalButton.tsx';
 
 const EditScreen = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <Input placeholder="My Counter" style={styles.input} />
-
-      <Text style={styles.fontup}> 10</Text>
-      <View style={styles.row}>
-        <TouchableOpacity style={styles.edit1} onPress={() => {}}>
-          <Text style={styles.centeredTxt}>Customize</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.edit1} onPress={() => {}}>
-          <Text style={styles.centeredTxt}>Change</Text>
-        </TouchableOpacity>
-      </View>
+    <SafeAreaView>
       <View>
+        <Input placeholder="My Counter" style={styles.input} />
+
+        <Text style={styles.fontup}> 10</Text>
         <View style={styles.row}>
-          <TouchableOpacity style={styles.edit2} onPress={() => {}}>
-            <Text style={styles.centeredTxt}>Increment</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.edit2} onPress={() => {}}>
-            <Text style={styles.centeredTxt}>Decrement</Text>
-          </TouchableOpacity>
+          <MyReusableComponent
+            type="primary"
+            title="ciao"
+            onPress={() => console.log('Clicked!')}
+          />
+          <MyReusableComponent
+            type="primary"
+            title="home"
+            onPress={() => console.log('Clicked!')}
+          />
         </View>
         <View style={styles.row}>
-          <TouchableOpacity style={styles.edit2} onPress={() => {}}>
-            <Text style={styles.centeredTxt}>Reset</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.edit2} onPress={() => {}}>
-            <Text style={styles.centeredTxt}>Change</Text>
-          </TouchableOpacity>
+          <MyReusableComponent
+            type="sceondary"
+            title="Increment"
+            onPress={() => console.log('Clicked!')}
+          />
+          <MyReusableComponent
+            type="secondary"
+            title="Decrement"
+            onPress={() => console.log('Clicked!')}
+          />
+        </View>
+        <View style={styles.row}>
+          <MyReusableComponent
+            type="secondary"
+            title="Edit"
+            onPress={() => console.log('Clicked!')}
+          />
+          <MyReusableComponent
+            type="secdonary"
+            title="home"
+            onPress={() => console.log('Clicked!')}
+          />
         </View>
       </View>
     </SafeAreaView>
@@ -59,31 +72,12 @@ const styles = StyleSheet.create({
   },
   row: {
     flexDirection: 'row',
-    height: 80,
-  },
-  centeredTxt: {
-    height: '100%',
-    textAlignVertical: 'center',
-    textAlign: 'center',
-    fontWeight: 'bold',
-    fontSize: 20,
+    marginTop: 15,
   },
   fontup: {
+    textAlign: 'center',
     fontSize: 55,
     color: 'black',
-  },
-  edit2: {
-    margin: 3,
-    borderRadius: 32,
-    borderColor: 'black',
-    borderWidth: 2,
-    width: 190,
-    height: 60,
-  },
-  edit1: {
-    marginTop: 11,
-    width: 190,
-    height: 60,
   },
 });
 export default EditScreen;
