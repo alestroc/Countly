@@ -1,9 +1,11 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View, Button} from 'react-native';
 import React from 'react';
 import MyReusableComponent from '../components/generalButton.tsx';
 import {useNavigation} from '@react-navigation/native';
 
 const renderCard = (title: string, value: string) => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.card}>
       <Text style={styles.cardTitle}>{title}</Text>
@@ -22,8 +24,8 @@ const renderCard = (title: string, value: string) => {
         <MyReusableComponent
           textType="primary"
           type="primary"
-          title="Show Dettails"
-          onPress={() => console.log('Clicked!')}
+          title="Show Details"
+          onPress={() => navigation.navigate('Edit')}
         />
       </View>
     </View>
@@ -36,6 +38,7 @@ const HomeScreen = ({navigation}) => {
       <Text style={styles.title}>Countly</Text>
       {renderCard('Counter 1', '100')}
       {renderCard('Inactive User', '10')}
+      <Button title="Test" onPress={() => navigation.navigate('Edit')} />
     </View>
   );
 };
@@ -73,6 +76,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   icon: {
+    marginTop: 5,
     flexDirection: 'row',
     justifyContent: 'center',
   },

@@ -1,13 +1,12 @@
 import React from 'react';
 import {SafeAreaView, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import HomeScreen from './src/screens/home';
 import EditScreen from './src/screens/edit';
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 function App(): React.JSX.Element {
   return (
