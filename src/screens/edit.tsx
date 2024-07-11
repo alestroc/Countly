@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import {Input} from '@rneui/themed';
 import MyReusableComponent from '../components/generalButton.tsx';
+import {useRoute, RouteProp} from '@react-navigation/native';
 
 const EditScreen = () => {
   return (

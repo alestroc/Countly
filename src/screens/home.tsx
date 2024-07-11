@@ -1,21 +1,41 @@
 import {StyleSheet, Text, TouchableOpacity, View, Button} from 'react-native';
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import MyReusableComponent from '../components/generalButton.tsx';
 import {useNavigation} from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const renderCard = (title: string, value: string) => {
+const RenderCard = ({title}: {title: string}) => {
   const navigation = useNavigation();
+  const [counter, setCounter] = useState(0);
+
+  useEffect(() => {
+    const loadCounter = async () => {
+      const savedCounter = await AsyncStorage.getItem('counter');
+      if (savedCounter) {
+        setCounter(parseInt(savedCounter, 10));
+      }
+    };
+    loadCounter();
+  }, []);
+
+  useEffect(() => {
+    AsyncStorage.setItem('counter', counter.toString());
+  }, [counter]);
 
   return (
     <View style={styles.card}>
       <Text style={styles.cardTitle}>{title}</Text>
       <View style={styles.cardContent}>
-        <Text style={styles.cardValue}>{value}</Text>
+        <Text style={styles.cardValue}>{counter}</Text>
         <View style={styles.row}>
-          <TouchableOpacity style={styles.button} onPress={() => {}}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => setCounter(counter + 1)}>
             <Text style={styles.white}>+</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={() => {}}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => setCounter(counter - 1)}>
             <Text style={styles.white}>-</Text>
           </TouchableOpacity>
         </View>
@@ -36,9 +56,8 @@ const HomeScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Countly</Text>
-      {renderCard('Counter 1', '100')}
-      {renderCard('Inactive User', '10')}
-      <Button title="Test" onPress={() => navigation.navigate('Edit')} />
+      <RenderCard title="Counter1" id="1" />
+      <RenderCard title="Counter2" id="2" />
     </View>
   );
 };

@@ -42,7 +42,6 @@ const styles = StyleSheet.create({
     height: 60,
   },
   edit1: {
-    borderWidth: 2,
     marginTop: 11,
     width: '48%',
     height: 60,
