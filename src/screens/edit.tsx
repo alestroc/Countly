@@ -11,12 +11,16 @@ import MyReusableComponent from '../components/generalButton.tsx';
 import {useRoute, RouteProp} from '@react-navigation/native';
 
 const EditScreen = () => {
+  const route = useRoute();
+  const {valCounter} = route.params as {valCounter: string};
+  // se cambiassi valCounter con id (stessa cosa nella pagina home), non mi da nessun errore, wtf
+
   return (
     <SafeAreaView>
       <View>
         <Input placeholder="My Counter" style={styles.input} />
 
-        <Text style={styles.fontup}> 10</Text>
+        <Text style={styles.fontup}> {valCounter}</Text>
         <View style={styles.row}>
           <MyReusableComponent
             type="primary"

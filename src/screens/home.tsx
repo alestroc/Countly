@@ -6,6 +6,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const RenderCard = ({title}: {title: string}) => {
   const navigation = useNavigation();
+
   const [counter, setCounter] = useState(0);
 
   useEffect(() => {
@@ -22,6 +23,9 @@ const RenderCard = ({title}: {title: string}) => {
     AsyncStorage.setItem('counter', counter.toString());
   }, [counter]);
 
+  const dataToPass = {
+    valCounter: counter,
+  };
   return (
     <View style={styles.card}>
       <Text style={styles.cardTitle}>{title}</Text>
@@ -45,7 +49,7 @@ const RenderCard = ({title}: {title: string}) => {
           textType="primary"
           type="primary"
           title="Show Details"
-          onPress={() => navigation.navigate('Edit')}
+          onPress={() => navigation.navigate('Edit', dataToPass)}
         />
       </View>
     </View>
@@ -56,8 +60,7 @@ const HomeScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Countly</Text>
-      <RenderCard title="Counter1" id="1" />
-      <RenderCard title="Counter2" id="2" />
+      <RenderCard title="Counter1" />
     </View>
   );
 };
