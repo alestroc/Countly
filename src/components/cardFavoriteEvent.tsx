@@ -40,6 +40,7 @@ export default CardFavoriteEvent;
 const styles = StyleSheet.create({
   row: {
     borderWidth: 2,
+    borderRadius: 16,
     flexDirection: 'row',
     justifyContent: 'space-around',
     width: 342,
