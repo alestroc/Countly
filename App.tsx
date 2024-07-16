@@ -13,7 +13,14 @@ const Stack = createNativeStackNavigator();
 function App(): React.JSX.Element {
   return (
     <>
-      <CardFavoriteEvent />
+      <CardFavoriteEvent
+        title="Electro Music Festival"
+        location="S. Giovanni del Dosso(MN)"
+        date="25/12"
+        hours="ore 21:30"
+        host="Soundsystem Verona"
+        imgUrl="https://placehold.co/110x160"
+      />
     </>
   );
 }

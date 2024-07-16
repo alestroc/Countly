@@ -1,6 +1,5 @@
 import {StyleSheet, Text, View, Image} from 'react-native';
 import React from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
 
 const CardFavoriteEvent = ({
   imgUrl,
@@ -18,25 +17,25 @@ const CardFavoriteEvent = ({
   host: string;
 }) => {
   return (
-    <SafeAreaView>
-      <View style={styles.row}>
+    <View style={styles.row}>
+      <Image
+        source={{
+          uri: imgUrl ? imgUrl : '',
+        }}
+        style={styles.imgArea}
+      />
+      <View style={styles.txtArea}>
+        <Text style={styles.latoBold}>{title}</Text>
         <View>
-          <Image
-            source={{
-              uri: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fhtesting-i03.mycdn.no%2Fmysimgprod%2Fhtesting_mystore_no%2Fimages%2F51948_Fastkarm_Vindu_110x160__109x159__1.png%2Fw600h600.png&f=1&nofb=1&ipt=08c5a8bd924839b55bb07e888be5f9540f6e690dcd9f9c4967f150d5f8cb5682&ipo=images',
-            }}
-            style={styles.imgArea}
-          />
+          <Text style={styles.latoBlack}>{location}</Text>
+          <Text>
+            {date} - {hours}
+          </Text>
         </View>
-        <View style={styles.txtArea}>
-          <Text>Electro Music Festival</Text>
-          <Text>S. Giovanni del Dosso(MN)</Text>
-          <Text>sab 25 Dic - pre 21:30</Text>
 
-          <Text>"Soundsystem Verona"</Text>
-        </View>
+        <Text>"{host}"</Text>
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -44,10 +43,12 @@ export default CardFavoriteEvent;
 
 const styles = StyleSheet.create({
   row: {
-    borderWidth: 2,
+    marginTop: 20,
+    marginLeft: 20,
+    backgroundColor: 'white',
     borderRadius: 16,
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     width: 342,
     height: 161,
   },
@@ -61,8 +62,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
     alignSelf: 'center',
-    borderWidth: 2,
     width: 200,
-    height: 125,
+    height: '90%',
+  },
+  latoBold: {
+    fontFamily: 'Lato-Bold',
+  },
+  latoBlack: {
+    fontFamily: 'Lato-Regular',
   },
 });
