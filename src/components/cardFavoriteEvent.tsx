@@ -28,47 +28,51 @@ const CardFavoriteEvent = ({
       />
       <View style={styles.txtArea}>
         <Text style={styles.latoBold}>{title}</Text>
-        <View>
-          <Text style={styles.latoBlack}>{location}</Text>
-          <Text>
-            {date} - {hours}
-          </Text>
-        </View>
+        <Text style={styles.latoBlack}>{location}</Text>
+        <Text style={styles.latoBlack}>
+          {date} - {hours}
+        </Text>
 
-        <Text>"{host}"</Text>
+        <Text style={styles.latoItalic}>"{host}"</Text>
       </View>
     </View>
   );
 };
 
 export default CardFavoriteEvent;
-
 const styles = StyleSheet.create({
   row: {
-    marginTop: 20,
-    marginLeft: 20,
     backgroundColor: 'white',
     borderRadius: 16,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: 342,
-    height: 161,
+    width: '100%',
+    height: '20%',
   },
   imgArea: {
-    borderWidth: 2,
-    width: 109,
-    height: 161,
+    borderRadius: 16,
+    width: '40%',
+    height: '100%',
   },
   txtArea: {
     alignItems: 'flex-start',
     justifyContent: 'space-evenly',
-    width: 200,
+    width: '55%',
     height: '90%',
   },
   latoBold: {
+    fontWeight: 'bold',
+    color: 'black',
     fontFamily: 'Lato-Bold',
+    fontSize: 20,
   },
   latoBlack: {
+    color: 'black',
     fontFamily: 'Lato-Black',
+  },
+  latoItalic: {
+    color: 'black',
+    fontFamily: 'Lato-Italic',
+    fontSize: 18,
   },
 });
