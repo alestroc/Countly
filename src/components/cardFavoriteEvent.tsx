@@ -20,7 +20,9 @@ const CardFavoriteEvent = ({
     <View style={styles.row}>
       <Image
         source={{
-          uri: imgUrl ? imgUrl : '',
+          uri: imgUrl
+            ? imgUrl
+            : 'https://www.ilpost.it/wp-content/uploads/2019/12/locandine14.jpg',
         }}
         style={styles.imgArea}
       />
@@ -56,12 +58,10 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     width: 109,
     height: 161,
-    flex: 1,
   },
   txtArea: {
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    alignSelf: 'center',
+    alignItems: 'flex-start',
+    justifyContent: 'space-evenly',
     width: 200,
     height: '90%',
   },
@@ -69,6 +69,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Lato-Bold',
   },
   latoBlack: {
-    fontFamily: 'Lato-Regular',
+    fontFamily: 'Lato-Black',
   },
 });
