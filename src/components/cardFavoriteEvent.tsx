@@ -47,17 +47,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '100%',
-    height: '20%',
+    height: 160,
   },
   imgArea: {
-    borderRadius: 16,
-    width: '40%',
+    borderTopLeftRadius: 16,
+    borderBottomLeftRadius: 16,
+    width: 140,
     height: '100%',
   },
   txtArea: {
     alignItems: 'flex-start',
     justifyContent: 'space-evenly',
-    width: '55%',
+    width: '60%',
     height: '90%',
   },
   latoBold: {
