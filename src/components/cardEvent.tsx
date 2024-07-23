@@ -7,12 +7,14 @@ const CardEvent = ({
   location,
   day,
   month,
+  week,
 }: {
   imgUrl: string;
   title: string;
   location: string;
   day: string;
   month: string;
+  week: string;
 }) => {
   return (
     <View style={styles.main}>
@@ -25,7 +27,7 @@ const CardEvent = ({
           }}
           style={styles.imgArea}
         />
-        <Text style={styles.overlayText}>Sab</Text>
+        <Text style={styles.overlayText}>{week}</Text>
       </View>
       <View style={styles.row}>
         <View style={styles.config1}>
@@ -46,7 +48,7 @@ export default CardEvent;
 const styles = StyleSheet.create({
   main: {
     width: '100%',
-    height: 370,
+    height: 380,
     backgroundColor: 'white',
     borderBottomRightRadius: 16,
   },
@@ -61,19 +63,24 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   config1: {
-    paddingLeft: 15,
-    paddingTop: 7,
+    borderRightWidth: 1,
+    borderRightColor: 'grey',
     height: 70,
     width: '15%',
     borderBottomLeftRadius: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   config2: {
+    paddingLeft: 10,
     height: 70,
-    justifyContent: 'space-evenly',
+    justifyContent: 'center',
+    alignItems: 'flex-start',
     width: '85%',
     borderBottomRightRadius: 16,
   },
   latoBlack: {
+    textAlignVertical: 'center',
     fontSize: 23,
     color: 'black',
     fontFamily: 'Lato-Black',
@@ -85,6 +92,7 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     position: 'relative',
+    paddingBottom: 5,
   },
   overlayText: {
     paddingTop: 5,
@@ -93,7 +101,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'grey',
     height: 30,
     width: 50,
-    bottom: 10,
+    bottom: 15,
     color: 'white',
     fontFamily: 'Lato-Black',
   },

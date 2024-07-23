@@ -11,6 +11,7 @@ function App(): React.ReactElement {
         location="S. Giovanni del Dosso(MN)"
         day="25"
         month="12"
+        week="Sab"
       />
     </SafeAreaView>
   );
