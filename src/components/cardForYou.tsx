@@ -1,5 +1,5 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
+import {View, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -7,11 +7,12 @@ import Animated, {
 } from 'react-native-reanimated';
 
 const CardForYou = ({nEventi}: {nEventi: string}) => {
-  const height = useSharedValue(150);
+  const [expanded, setExpanded] = useState(false);
+  const height = useSharedValue(80);
 
   const handlePress = () => {
-    height.value = withSpring(height.value + 50);
-    console.log('Premuto');
+    setExpanded(!expanded);
+    height.value = withSpring(expanded ? 80 : 400);
   };
 
   const animatedStyle = useAnimatedStyle(() => {
@@ -21,11 +22,10 @@ const CardForYou = ({nEventi}: {nEventi: string}) => {
   });
 
   return (
-    <View style={styles.main}>
+    <View>
       <Animated.View style={[styles.animatedView, animatedStyle]}>
-        <TouchableOpacity onPress={handlePress} style={styles.config1}>
-          <Text style={styles.config2}>{nEventi} Eventi</Text>
-        </TouchableOpacity>
+        <TouchableOpacity onPress={handlePress} style={styles.config1} />
+        <Text style={styles.config2}>{nEventi} Eventi</Text>
       </Animated.View>
     </View>
   );
@@ -34,22 +34,24 @@ const CardForYou = ({nEventi}: {nEventi: string}) => {
 export default CardForYou;
 
 const styles = StyleSheet.create({
-  main: {
-    justifyContent: 'center',
-    width: '100%',
-    bottom: 0,
-  },
   animatedView: {
+    borderWidth: 2,
+    borderTopRightRadius: 16,
+    borderTopLeftRadius: 16,
+    top: 25,
     width: '100%',
-    backgroundColor: 'lightgrey',
+    backgroundColor: 'white',
   },
   config1: {
     borderWidth: 2,
+
+    borderTopRightRadius: 16,
+    borderTopLeftRadius: 16,
     position: 'relative',
-    top: 8,
+    top: -11,
     backgroundColor: 'lightgrey',
-    height: 200,
-    width: '100%',
+    width: '25%',
+    height: 25,
     alignSelf: 'center',
   },
   config2: {
