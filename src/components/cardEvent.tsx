@@ -47,11 +47,13 @@ export default CardEvent;
 
 const styles = StyleSheet.create({
   main: {
-    width: '100%',
+    width: 290,
     height: 380,
     backgroundColor: 'white',
     borderBottomRightRadius: 16,
-    padding: 5,
+    borderTopRightRadius: 16,
+    borderTopLeftRadius: 16,
+    margin: 8,
   },
   row: {
     flexDirection: 'row',

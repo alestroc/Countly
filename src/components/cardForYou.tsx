@@ -6,6 +6,7 @@ import Animated, {
   withSpring,
 } from 'react-native-reanimated';
 import CardEvent from './cardEvent';
+import {red} from 'react-native-reanimated/lib/typescript/Colors';
 
 const CardForYou = ({nEventi}: {nEventi: string}) => {
   const [expanded, setExpanded] = useState(false);
@@ -13,7 +14,7 @@ const CardForYou = ({nEventi}: {nEventi: string}) => {
 
   const handlePress = () => {
     setExpanded(!expanded);
-    height.value = withSpring(expanded ? 80 : 400);
+    height.value = withSpring(expanded ? 80 : 475);
   };
 
   const animatedStyle = useAnimatedStyle(() => {
@@ -35,29 +36,29 @@ const CardForYou = ({nEventi}: {nEventi: string}) => {
     {
       id: '2',
       imgUrl: '',
-      title: 'Event 1',
-      location: '',
-      day: '',
-      month: '',
-      week: '',
+      title: 'Event 2',
+      location: 'MILANO',
+      day: '13',
+      month: '1',
+      week: 'Dom',
     },
     {
       id: '3',
       imgUrl: '',
-      title: 'Event 1',
-      location: '',
-      day: '',
-      month: '',
-      week: '',
+      title: 'Event 3',
+      location: 'ROMA',
+      day: '14',
+      month: '1',
+      week: 'Lun',
     },
+    // Add more events as needed
   ];
 
   return (
     <View>
       <Animated.View style={[styles.animatedView, animatedStyle]}>
-        <TouchableOpacity onPress={handlePress} style={styles.config1}>
-          <Text style={styles.config2}>{nEventi} Eventi</Text>
-        </TouchableOpacity>
+        <TouchableOpacity onPress={handlePress} style={styles.config1} />
+        <Text style={styles.config2}>{nEventi} Eventi</Text>
         {expanded && (
           <FlatList
             data={data}
@@ -104,10 +105,20 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   config2: {
+    //borderWidth: 2,
+    color: 'black',
+    height: 55,
+    marginTop: -10,
     textAlign: 'center',
-    marginTop: 10,
+    textAlignVertical: 'center',
+    fontFamily: 'Lato-Black',
+    fontSize: 19,
   },
   flatListContainer: {
     paddingHorizontal: 15,
+    backgroundColor: '#f6f6f6',
+    marginLeft: 10,
+    marginBottom: 5,
+    alignItems: 'center',
   },
 });
