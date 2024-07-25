@@ -86,39 +86,39 @@ export default CardForYou;
 
 const styles = StyleSheet.create({
   animatedView: {
-    borderWidth: 2,
+    //borderWidth: 2,
+
     borderTopRightRadius: 16,
     borderTopLeftRadius: 16,
     top: 25,
     width: '100%',
     backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   config1: {
     borderWidth: 2,
+
     borderTopRightRadius: 16,
     borderTopLeftRadius: 16,
     position: 'relative',
     top: -11,
-    backgroundColor: 'lightgrey',
+    backgroundColor: 'white',
     width: '25%',
     height: 25,
-    alignSelf: 'center',
   },
   config2: {
     //borderWidth: 2,
     color: 'black',
     height: 55,
     marginTop: -10,
-    textAlign: 'center',
     textAlignVertical: 'center',
     fontFamily: 'Lato-Black',
     fontSize: 19,
   },
   flatListContainer: {
-    paddingHorizontal: 15,
+    paddingHorizontal: 0,
     backgroundColor: '#f6f6f6',
-    marginLeft: 10,
-    marginBottom: 5,
     alignItems: 'center',
   },
 });
