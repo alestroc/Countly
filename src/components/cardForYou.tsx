@@ -6,7 +6,6 @@ import Animated, {
   withSpring,
 } from 'react-native-reanimated';
 import CardEvent from './cardEvent';
-import {red} from 'react-native-reanimated/lib/typescript/Colors';
 
 const CardForYou = ({nEventi}: {nEventi: string}) => {
   const [expanded, setExpanded] = useState(false);
@@ -118,7 +117,7 @@ const styles = StyleSheet.create({
   },
   flatListContainer: {
     paddingHorizontal: 0,
-    backgroundColor: '#f6f6f6',
+    backgroundColor: '#f3f3f3',
     alignItems: 'center',
   },
 });
